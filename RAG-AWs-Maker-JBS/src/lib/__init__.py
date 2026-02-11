@@ -14,11 +14,25 @@ def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
 
-    CORS(app, resources={r"/*": {"origins": [
+    # CORS configuration
+    # Get allowed origins from environment variable or use defaults
+    cors_origins_env = os.getenv('CORS_ORIGINS', '')
+    allowed_origins = [origin.strip() for origin in cors_origins_env.split(',') if origin.strip()] if cors_origins_env else []
+    
+    # Always include localhost for local development
+    default_origins = [
         "http://localhost:8080",
         "http://localhost:5173",
-        "*"  # Allow all origins for development
-    ]}}, supports_credentials=True)
+        "http://localhost:3000"
+    ]
+    # Combine default origins with environment variable origins
+    all_origins = list(set(default_origins + allowed_origins))
+    
+    CORS(app, resources={r"/*": {
+        "origins": all_origins if all_origins else ["*"],  # Allow all if no specific origins
+        "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+        "allow_headers": ["Content-Type", "Authorization"]
+    }}, supports_credentials=True)
 
     init_db_connection()  # ✅ Initialize DB once
 
