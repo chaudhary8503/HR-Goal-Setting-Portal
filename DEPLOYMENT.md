@@ -5,7 +5,7 @@
 ### Backend (Flask API)
 ```bash
 # Navigate to backend directory
-cd "RAG-AWs-Maker-JBS/src"
+cd "backend/src"
 
 # Install dependencies (if not already installed)
 pip install -r requirements.txt
@@ -18,7 +18,7 @@ The backend will run on `http://localhost:5000`
 ### Frontend (React/Vite)
 ```bash
 # Navigate to frontend directory
-cd "jaffer-focus-metrics-portal"
+cd "frontend"
 
 # Install dependencies (if not already installed)
 npm install
@@ -47,7 +47,7 @@ The frontend will run on `http://localhost:8080`
 
 2. **Configure the Service**
    - Railway will auto-detect it's a Python project
-   - Set the **Root Directory** to: `RAG-AWs-Maker-JBS`
+   - Set the **Root Directory** to: `backend`
    - Railway will use the `Procfile` to start the server
 
 3. **Set Environment Variables**
@@ -80,7 +80,7 @@ The frontend will run on `http://localhost:8080`
 1. **Add Frontend as a New Service**
    - In your Railway project, click "New Service"
    - Select "GitHub Repo" again (same repo)
-   - Set **Root Directory** to: `jaffer-focus-metrics-portal`
+   - Set **Root Directory** to: `frontend`
 
 2. **Configure Build Settings**
    - Railway will detect it's a Node.js project
@@ -103,7 +103,7 @@ The frontend will run on `http://localhost:8080`
    - Push your code to GitHub
    - Go to [vercel.com](https://vercel.com)
    - Import your repository
-   - Set **Root Directory** to: `jaffer-focus-metrics-portal`
+   - Set **Root Directory** to: `frontend`
    - Add Environment Variable:
      ```
      VITE_API_BASE_URL=https://your-backend-url.up.railway.app
@@ -153,7 +153,7 @@ If `CORS_ORIGINS` is not set, the backend will allow all origins (useful for dev
 
 - **Backend not starting:** 
   - Check Railway logs for errors
-  - Ensure `Procfile` exists in `RAG-AWs-Maker-JBS/` directory
+  - Ensure `Procfile` exists in `backend/` directory
   - Verify all dependencies are in `requirements.txt` (gunicorn must be included)
   
 - **CORS errors:** 
@@ -177,17 +177,17 @@ If `CORS_ORIGINS` is not set, the backend will allow all origins (useful for dev
 ### Local Development
 ```bash
 # Terminal 1 - Backend
-cd "RAG-AWs-Maker-JBS/src" && python app.py
+cd "backend/src" && python app.py
 
 # Terminal 2 - Frontend  
-cd "jaffer-focus-metrics-portal" && npm run dev
+cd "frontend" && npm run dev
 ```
 
 ### Build for Production
 ```bash
 # Backend - no build needed, just deploy
 # Frontend
-cd "jaffer-focus-metrics-portal"
+cd "frontend"
 npm run build
 # Output will be in 'dist' folder
 ```

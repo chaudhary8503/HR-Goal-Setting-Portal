@@ -24,7 +24,7 @@ This platform helps organizations and teams set, track, and achieve their object
 
 ## 🏗️ Architecture
 
-### Frontend (`jaffer-focus-metrics-portal/`)
+### Frontend (`frontend/`)
 - **Framework**: React 18 with TypeScript
 - **Build Tool**: Vite
 - **UI Library**: Radix UI components with Tailwind CSS
@@ -32,7 +32,7 @@ This platform helps organizations and teams set, track, and achieve their object
 - **HTTP Client**: Axios
 - **Routing**: React Router
 
-### Backend (`RAG-AWs-Maker-JBS/`)
+### Backend (`backend/`)
 - **Framework**: Flask (Python)
 - **AI Integration**: Google Gemini AI via LangChain
 - **Authentication**: JWT tokens
@@ -57,19 +57,19 @@ This platform helps organizations and teams set, track, and achieve their object
 
 2. **Backend Setup**
    ```bash
-   cd RAG-AWs-Maker-JBS/src
+   cd backend/src
    pip install -r requirements.txt
    ```
 
 3. **Frontend Setup**
    ```bash
-   cd jaffer-focus-metrics-portal
+   cd frontend
    npm install
    ```
 
 4. **Environment Variables**
    
-   Create a `.env` file in `RAG-AWs-Maker-JBS/`:
+   Create a `.env` file in `backend/`:
    ```env
    GEMINI_API_KEY=your_gemini_api_key_here
    JWT_SECRET_KEY=your_jwt_secret_key_here
@@ -79,14 +79,14 @@ This platform helps organizations and teams set, track, and achieve their object
 
 **Terminal 1 - Backend:**
 ```bash
-cd RAG-AWs-Maker-JBS/src
+cd backend/src
 python app.py
 ```
 Backend runs on `http://localhost:5000`
 
 **Terminal 2 - Frontend:**
 ```bash
-cd jaffer-focus-metrics-portal
+cd frontend
 npm run dev
 ```
 Frontend runs on `http://localhost:8080`
@@ -135,7 +135,7 @@ Frontend runs on `http://localhost:8080`
 
 ```
 .
-├── jaffer-focus-metrics-portal/    # Frontend React app
+├── frontend/                       # Frontend React app
 │   ├── src/
 │   │   ├── components/              # React components
 │   │   ├── pages/                 # Page components
@@ -144,7 +144,7 @@ Frontend runs on `http://localhost:8080`
 │   ├── public/                    # Static assets
 │   └── package.json
 │
-├── RAG-AWs-Maker-JBS/             # Backend Flask API
+├── backend/                       # Backend Flask API
 │   ├── src/
 │   │   ├── app.py                 # Application entry point
 │   │   ├── lib/
@@ -163,7 +163,7 @@ Frontend runs on `http://localhost:8080`
 
 ### Railway (Backend)
 1. Create a new Railway project
-2. Set root directory to `RAG-AWs-Maker-JBS`
+2. Set root directory to `backend`
 3. Add environment variables:
    - `GEMINI_API_KEY`
    - `JWT_SECRET_KEY`
@@ -171,7 +171,7 @@ Frontend runs on `http://localhost:8080`
 
 ### Vercel/Netlify (Frontend)
 1. Connect your GitHub repository
-2. Set root directory to `jaffer-focus-metrics-portal`
+2. Set root directory to `frontend`
 3. Add environment variable:
    - `VITE_API_BASE_URL` (your Railway backend URL)
 4. Deploy!

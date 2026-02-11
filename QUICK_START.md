@@ -4,14 +4,14 @@
 
 ### Backend Server
 ```bash
-cd "RAG-AWs-Maker-JBS/src"
+cd "backend/src"
 python app.py
 ```
 Runs on: `http://localhost:5000`
 
 ### Frontend Server
 ```bash
-cd "jaffer-focus-metrics-portal"
+cd "frontend"
 npm run dev
 ```
 Runs on: `http://localhost:8080`
