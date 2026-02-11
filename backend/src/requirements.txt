@@ -1,0 +1,12 @@
+flask
+flask_cors
+bcrypt
+PyJWT
+psycopg2-binary
+langchain
+langchain-google-genai
+python-dotenv
+openpyxl
+invoke
+gunicorn
+sympy
