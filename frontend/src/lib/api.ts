@@ -5,6 +5,8 @@ import toast from 'react-hot-toast';
 import { OutputGoalProps } from '@/types/index';
 import { API_BASE_URL } from '@/config';
 
+const SMART_GOAL_TIMEOUT_MS = 180000;
+
 /**
  * Sends the OKR data to the backend and gets AI-generated SMART goals
  * @param data User's OKR form data
@@ -21,7 +23,8 @@ export const generateSmartGoal = async (data: OKRData, retryCount = 2) => {try {
       keyResult: data.keyResult,
       managersGoal: data.managersGoal
     }, {
-      timeout: 30000 // 30 seconds timeout for potentially slow AI responses
+      // LLM generation can take over a minute in some cases.
+      timeout: SMART_GOAL_TIMEOUT_MS
     });
     
     return {
@@ -34,7 +37,7 @@ export const generateSmartGoal = async (data: OKRData, retryCount = 2) => {try {
     if (error.code === 'ECONNABORTED') {
       return {
         success: false,
-        error: 'Request timed out. The server might be busy, please try again later.'
+        error: 'Goal generation is taking longer than expected. Please wait and try again in a moment.'
       };
     }
       if (!error.response) {

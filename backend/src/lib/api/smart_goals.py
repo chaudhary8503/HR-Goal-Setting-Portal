@@ -5,7 +5,6 @@ import re
 from pathlib import Path
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import PromptTemplate
-from langchain.chains import LLMChain
 from sympy import true
 
 
@@ -67,7 +66,7 @@ class SMARTGoalsGenerator:
     def generate_smart_goals(self, job_title, department, goal_description, key_results, deadline, managers_goal, max_retries=3):
         context = self.build_context(job_title, department, goal_description, key_results, deadline, managers_goal)
         prompt = PromptTemplate(input_variables=["context"], template=self.template)
-        chain = LLMChain(llm=self.llm, prompt=prompt)
+        chain = prompt | self.llm
         for attempt in range(max_retries):
             try:
                 output = chain.invoke({"context": context})
