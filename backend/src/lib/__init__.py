@@ -5,7 +5,7 @@ from .api import api_blueprint
 from flask_cors import CORS
 from dotenv import load_dotenv
 import os
-from lib.db.db_connection import init_db_connection
+from src.lib.db.db_connection import init_db_connection
 
 
 load_dotenv()

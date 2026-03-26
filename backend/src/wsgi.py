@@ -1,3 +1,3 @@
-from lib import create_app  # adjust if your app is in `src` folder
+from src.lib import create_app
 
 app = create_app()

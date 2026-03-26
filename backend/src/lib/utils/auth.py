@@ -4,9 +4,9 @@ import jwt
 from datetime import datetime, timedelta
 from functools import wraps
 from flask import request, jsonify, g, current_app
-from lib.db.connect_db import *
+from src.lib.db.connect_db import *
 import psycopg2
-from lib.config import Config
+from src.lib.config import Config
 
 SECRET_KEY = Config.JWT_SECRET_KEY
 

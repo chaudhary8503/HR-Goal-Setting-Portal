@@ -1,7 +1,7 @@
 import os
 from dotenv import load_dotenv
 import psycopg2
-from lib.config import Config
+from src.lib.config import Config
 
 def make_db_connection():
     """Fetch user credentials from environment variables."""

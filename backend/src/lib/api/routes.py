@@ -3,12 +3,12 @@ from datetime import datetime, timedelta
 from . import api_blueprint
 from ..utils.auth import login_required, SECRET_KEY
 from .smart_goals import SMARTGoalsGenerator
-from lib.db.database import save_goal
+from src.lib.db.database import save_goal
 import bcrypt
 import jwt 
-from lib.db.db_connection import get_db_connection
+from src.lib.db.db_connection import get_db_connection
 
-from lib.db.database import get_user
+from src.lib.db.database import get_user
 import os
 import json
 
