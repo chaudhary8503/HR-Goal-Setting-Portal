@@ -1,6 +1,6 @@
 # lib/db/db_connection.py
 
-from lib.db.connect_db import make_db_connection
+from src.lib.db.connect_db import make_db_connection
 
 db_connection = None
 

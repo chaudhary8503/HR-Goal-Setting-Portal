@@ -2,7 +2,7 @@ from dotenv import load_dotenv
 import os
 load_dotenv()  # ✅ Load all .env variables early before anything else
 
-from lib import create_app
+from src.lib import create_app
 
 
 app = create_app()
